@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-dialog-component',
@@ -12,7 +13,7 @@ export class LoginDialogComponentComponent implements OnInit {
   form: FormGroup;
 
   constructor(private dialogRef: MatDialogRef<LoginDialogComponentComponent>,
-              private fb: FormBuilder) {
+              private router: Router) {
 
   }
 
@@ -20,12 +21,13 @@ export class LoginDialogComponentComponent implements OnInit {
     this.dialogRef.close();
   }
   ngOnInit() {
-    this.fb.group({
-      username: '',
-      password: ''
+    this.form = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
   public onLogin(form) {
-
+    console.log("calling login!");
+    this.router.navigate(['/rides']);
 }
 }

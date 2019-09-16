@@ -1,8 +1,8 @@
-<form formControlName="form" (ngSubmit)="onLogin(form)">
+<form [formGroup]="form" (ngSubmit)="onLogin(form)">
 
 <h2 mat-dialog-title>Log in</h2>
 
-<mat-dialog-content [formGroup]="form">
+<mat-dialog-content>
 
     <mat-form-field appearance="outline">
       <mat-label>Username</mat-label>
@@ -22,6 +22,6 @@
 
 <mat-dialog-actions>
     <button class="mat-raised-button"(click)="closeDialog()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="onLogin()">Save</button>
+    <button class="mat-raised-button mat-primary">Save</button>
 </mat-dialog-actions>
 </form>
