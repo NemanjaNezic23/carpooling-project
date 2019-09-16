@@ -2,7 +2,7 @@ import { LoginDialogComponentComponent } from './../login-dialog-component/login
 
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,23 +11,28 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 })
 export class LandingPageComponent implements OnInit {
 
+  dialogRef: MatDialogRef<LoginDialogComponentComponent>;
+
   constructor(private router: Router, public dialog: MatDialog) {
+
+
+
    }
 
   ngOnInit() {
   }
 
   public openLoginForm(): void {
-     const dialogRef = new MatDialogConfig();
 
-     dialogRef.disableClose = true;
-     dialogRef.autoFocus = true;
+    const dialogRef = new MatDialogConfig();
+    dialogRef.disableClose = true;
+    dialogRef.autoFocus = true;
 
-     this.dialog.open(LoginDialogComponentComponent, dialogRef);
+    this.dialog.open(LoginDialogComponentComponent, dialogRef);
   }
 
   public closeDialog():void {
-
+    this.dialogRef.close();
   }
 
 }

@@ -1,5 +1,6 @@
-import {MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login-dialog-component',
@@ -8,12 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginDialogComponentComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) {
+  form: FormGroup;
+
+  constructor(private dialogRef: MatDialogRef<LoginDialogComponentComponent>,
+              private fb: FormBuilder) {
 
   }
 
-
+  public closeDialog(): void {
+    this.dialogRef.close();
+  }
   ngOnInit() {
+    this.fb.group({
+      username: '',
+      password: ''
+    });
   }
+  public onLogin(form) {
 
+}
 }
