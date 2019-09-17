@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
 
   private _id:String = '';
 
+  public isDriver:boolean;
+
   constructor(private router: Router, private userService: UserService) {
 
 
@@ -20,11 +22,18 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.userService.loggedIn.subscribe(value => this.loggedIn = value);
+    this.userService.role.subscribe(value => this.isDriver = value == 1 );
+    console.log('is driver?' + this.isDriver);
   }
 
   profile() {
     this._id = this.userService.getCurrentUser()._id;
     this.router.navigate(['/profile/' + this._id]);
+  }
+
+  driverProfile() {
+    this._id = this.userService.getCurrentUser()._id;
+    this.router.navigate(['/driver']);
   }
 
   logout() {

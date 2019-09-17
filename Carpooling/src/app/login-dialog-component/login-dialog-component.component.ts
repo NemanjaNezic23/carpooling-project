@@ -37,12 +37,14 @@ export class LoginDialogComponentComponent implements OnInit {
 
     if(uName == 'admin' && uPass == 'admin') {
          this.userService.setCurrentUser('1');
+         this.userService.changeRole(1);
          this.userService.changeLoggedIn(true);
          this.dialogRef.close();
          this.router.navigate(['/driver']);
       } else if( uName === 'student' && uPass === 'student') {
         this.userService.setCurrentUser('2');
         this.userService.changeLoggedIn(true);
+        this.userService.changeRole(2);
         this.dialogRef.close();
         this.router.navigate(['/profile']);
       }

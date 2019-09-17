@@ -12,11 +12,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
       <!--A button to go to the ride list/search page.-->
-      <button *ngIf="loggedIn"  (click)="navigateToRides()" class="btn btn-outline-secondary my-2 my-sm-0">Find Ride</button>
+      <button *ngIf="loggedIn && !isDriver"  (click)="navigateToRides()" class="btn btn-outline-secondary my-2 my-sm-0">Find Ride</button>
       <!--A button to go right to the new ride page.-->
-      <button *ngIf="loggedIn" (click)="newRideForm()" class="btn btn-outline-secondary my-2 my-sm-0">New Ride</button>
+      <button *ngIf="loggedIn && !isDriver" (click)="newRideForm()" class="btn btn-outline-secondary my-2 my-sm-0">New Ride</button>
       <!--This is the profile button and how it looks.-->
-      <button *ngIf="loggedIn" (click)="profile()" class="btn btn-outline-secondary my-2 my-sm-0" id ="submit">Profile</button>
+      <button *ngIf="loggedIn && !isDriver" (click)="profile()" class="btn btn-outline-secondary my-2 my-sm-0" id ="submit">Profile</button>
+
+      <!--This is the profile button and how it looks, navigates to drivers profile.-->
+      <button *ngIf="loggedIn && isDriver" (click)="profile()" class="btn btn-outline-secondary my-2 my-sm-0" id ="submitDriver">Profile</button>
+
 
 
       <!--User can log in and out-->

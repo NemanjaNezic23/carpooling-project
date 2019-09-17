@@ -9,8 +9,11 @@ export class UserService {
   currentUser: User;
 
   private loggedSource = new BehaviorSubject<boolean>(false);
+  private roleSource = new BehaviorSubject<Number>(0);
+  role = this.roleSource.asObservable();
   loggedIn = this.loggedSource.asObservable();
   private users: User[] = [];
+  role:Number;
 
   constructor(private router: Router) {
     this.generateUsers();
@@ -27,6 +30,14 @@ export class UserService {
           usersJson[i].phone));
     }
 
+  }
+
+  public changeRole(value:Number) {
+   this.roleSource.next(value);
+  }
+
+  public isDriver() {
+    return this.role == 1;
   }
 
   public getUsers() {
