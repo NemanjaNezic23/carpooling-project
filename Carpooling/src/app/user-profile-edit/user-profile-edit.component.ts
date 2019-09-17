@@ -10,7 +10,6 @@ import { User } from '../model/user';
   styleUrls: ['./user-profile-edit.component.css']
 })
 export class UserProfileEditComponent implements OnInit {
-  public fullyLoaded: Promise<boolean>;
   public userForm: FormGroup;
   public user: User;
 
@@ -23,11 +22,7 @@ export class UserProfileEditComponent implements OnInit {
       phone_number: [''],
     });
 
-    this.route.params.subscribe(async params => {
-
-      this.user = this.userService.getUserProfile(params['_id']);
-
-    });
+    this.user = this.userService.getCurrentUser();
   }
 
   /**
@@ -38,7 +33,7 @@ export class UserProfileEditComponent implements OnInit {
     this.user.last_name = this.userForm.value['last_name'] || this.user.last_name;
     this.user.phone = this.userForm.value['phone_number'] || this.user.phone;
 
-        this.router.navigate([`/profile/${this.user._id}`]);
+    this.router.navigate([`/profile/${this.user._id}`]);
       }
 
 

@@ -1,3 +1,4 @@
+import { UserService } from './../service/user-service/user-service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,24 +9,28 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  private loggedIn: '';
+  public loggedIn: boolean;
 
-  private _id = '';
+  private _id:String = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
+
+
   }
 
   ngOnInit() {
-
-
+    this.userService.loggedIn.subscribe(value => this.loggedIn = value);
   }
 
   profile() {
+    this._id = this.userService.getCurrentUser()._id;
     this.router.navigate(['/profile/' + this._id]);
   }
 
   logout() {
-
+    this._id = '';
+    this.userService.changeLoggedIn(false);
+    this.router.navigate(['']);
   }
 
   // this routes page to /rides/new
@@ -36,6 +41,5 @@ export class NavbarComponent implements OnInit {
   // this routes page to /rides
   navigateToRides() {
     this.router.navigate(['/rides'])
-      .then((success) => console.log(success));
   }
 }

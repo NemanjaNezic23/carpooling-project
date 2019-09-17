@@ -15,7 +15,6 @@ export class LoginDialogComponentComponent implements OnInit {
   form: FormGroup;
   user: User;
 
-  isLoggedIn:boolean;
 
   constructor(private dialogRef: MatDialogRef<LoginDialogComponentComponent>,
               private router: Router, private userService: UserService) {
@@ -33,15 +32,19 @@ export class LoginDialogComponentComponent implements OnInit {
     });
   }
   public onLogin(form) {
-    console.log("username + password is =>" + this.form.controls['username'].value + this.form.controls['password'].value);
     let uName = this.form.controls['username'].value;
     let uPass = this.form.controls['password'].value;
 
     if(uName == 'admin' && uPass == 'admin') {
          this.userService.setCurrentUser('1');
-        this.router.navigate(['/profile']);
-        this.isLoggedIn = true;
+         this.userService.changeLoggedIn(true);
+         this.dialogRef.close();
+         this.router.navigate(['/profile']);
+      } else if( uName === 'student' && uPass === 'student') {
+        this.userService.setCurrentUser('2');
+        this.userService.changeLoggedIn(true);
         this.dialogRef.close();
+        this.router.navigate(['/profile']);
       }
 
 }

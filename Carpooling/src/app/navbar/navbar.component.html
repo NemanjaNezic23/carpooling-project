@@ -12,17 +12,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
       <!--A button to go to the ride list/search page.-->
-      <button  (click)="navigateToRides()" class="btn btn-outline-secondary my-2 my-sm-0">Find Ride</button>
+      <button *ngIf="loggedIn"  (click)="navigateToRides()" class="btn btn-outline-secondary my-2 my-sm-0">Find Ride</button>
       <!--A button to go right to the new ride page.-->
-      <button  (click)="newRideForm()" class="btn btn-outline-secondary my-2 my-sm-0">New Ride</button>
+      <button *ngIf="loggedIn" (click)="newRideForm()" class="btn btn-outline-secondary my-2 my-sm-0">New Ride</button>
       <!--This is the profile button and how it looks.-->
-      <button  (click)="profile()" class="btn btn-outline-secondary my-2 my-sm-0" id ="submit">Profile</button>
-      <button  (click)="about_us()" class="btn btn-outline-secondary my-2 my-sm-0" id ="about_us">About</button>
+      <button *ngIf="loggedIn" (click)="profile()" class="btn btn-outline-secondary my-2 my-sm-0" id ="submit">Profile</button>
 
 
       <!--User can log in and out-->
-      <button  (click)="logout()" class="btn btn-outline-secondary my-2 my-sm-0">Log out</button>
-      <a  class="btn btn-outline-secondary my-2 my-sm-0" [attr.href]="authUrl">Log in</a>
+      <button *ngIf="loggedIn" (click)="logout()" class="btn btn-outline-secondary my-2 my-sm-0">Log out</button>
 
 
 

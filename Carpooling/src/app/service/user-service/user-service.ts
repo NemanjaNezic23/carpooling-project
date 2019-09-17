@@ -2,11 +2,14 @@ import { User } from './../../model/user';
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import UsersJson from '../../../assets/data/users.json';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class UserService {
   currentUser: User;
 
+  private loggedSource = new BehaviorSubject<boolean>(false);
+  loggedIn = this.loggedSource.asObservable();
   private users: User[] = [];
 
   constructor(private router: Router) {
@@ -34,14 +37,23 @@ export class UserService {
     this.currentUser = this.getUserProfile(id);
   }
 
+  public getIsLoggedIn() {
+    return this.loggedIn;
+  }
+
   public getCurrentUser() {
     return this.currentUser;
   }
 
+
+  public changeLoggedIn(value: boolean) {
+    this.loggedSource.next(value);
+  }
+
+
   public getUserProfile(id: String) {
 
     let us =  this.users.find(user => user._id === id);
-      console.log("searched user =? " + us.first_name);
     return us;
   }
 
