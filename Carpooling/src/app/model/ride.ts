@@ -20,7 +20,7 @@ export class Ride {
   arrivalAddress: String;
   departureLocation: Number[];
   arrivalLocation: Number[];
-  owner: User;
+  owner: User[];
   title: String;
   description: String;
   riders: User[];

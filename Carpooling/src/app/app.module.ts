@@ -23,6 +23,7 @@ import { NewRideComponent } from './new-ride/new-ride.component';
 import { RideDetailComponent } from './ride-detail/ride-detail.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
+import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
     UserProfileEditComponent,
     NewRideComponent,
     RideDetailComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    RiderProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -7,14 +7,14 @@ export class RideService {
 private rides: Ride[] = [];
 
   constructor() {
-      this.generateRides()
+      this.generateRides();
       console.log(this.rides[0]);
    }
 
 
    generateRides() {
-     let listOfRides = RidesJson;
-     for( let i=0; i< listOfRides.length; i++) {
+     const listOfRides = RidesJson;
+     for ( let i = 0; i < listOfRides.length; i++) {
        this.rides.push(new Ride(listOfRides[i]._id, listOfRides[i].departingFrom, listOfRides[i].departingDatetime,
         listOfRides[i].arrivingAt, listOfRides[i].meetingLocation, listOfRides[i].numberRiders, listOfRides[i].commentsInput,
         listOfRides[i].cost,
@@ -29,14 +29,29 @@ private rides: Ride[] = [];
     return this.rides;
   }
 
+  public getCompletedRides(driverId) {
+      const completed: Ride[] = [];
+      for (const ride of this.rides) {
+        const owners = ride.owner;
+        for (const own of owners) {
+          if (own._id == driverId) {
+            completed.push(ride);
+          }
+        }
+
+       }
+      return completed;
+      }
+
   public getPastRides(userId) {
-    let pastRides:Ride[] = [];
-    for(let i=0;i<this.rides.length; i++ ){
-     let riders = this.rides[i].riders;
+    const pastRides: Ride[] = [];
+    for (let i = 0; i < this.rides.length; i++ ) {
+     const riders = this.rides[i].riders;
      console.log(riders);
-     for(let j=0;j<riders.length; j++) {
-       if(riders[j]._id == userId)
+     for (let j = 0; j < riders.length; j++) {
+       if (riders[j]._id == userId) {
        pastRides.push(this.rides[i]);
+       }
      }
     }
     console.log(pastRides);

@@ -1,50 +1,59 @@
 [
 	{
-		"_id" : "1", 
+		"_id" : "1",
 		"departingFrom" : "Belgrade",
 		"departingDatetime" : "2014-01-01T23:28:56.782Z",
-		"arrivingAt": "13:02", 
+		"arrivingAt": "13:02",
 		"meetingLocation": "Nemanjina 23",
 		"numberRiders": "3",
 		"commentsInput" : "Nice ride",
-		"cost" : 23, 
+		"cost" : 23,
 		"spots" : 4,
-		"vehiclyeType" : "taxi", 
-		"departureTime": "2014-01-01T23:28:56.782Z", 
+		"vehiclyeType" : "taxi",
+		"departureTime": "2014-01-01T23:28:56.782Z",
 		"arrivalTime" : "2014-01-01T23:28:56.782Z",
 		"departureAddress": "Nemanjina 23",
-		"arrivalAddress": "Kosancicev Venac 23", 
+		"arrivalAddress": "Kosancicev Venac 23",
 		"departureLocation": [
 				44.816940,
-				20.451160 
+				20.451160
 			],
 		  "arrivalLocation": [
-		  44.840910, 
-		  20.412290 
+		  44.840910,
+		  20.412290
 		  ],
-		  "owner": {
+		  "owner": [ {
 		  "_id" : "1",
-		  "username" : "driver", 
+		  "username" : "driver",
 		  "first_name": "John",
 		  "last_name": "Doe",
 		  "email": "driver@drive.com",
 		  "phone" : "381-642-245"
-		  },
+      },
+      {
+        "_id" : "2",
+        "username" : "driver",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "driver@drive.com",
+        "phone" : "381-642-245"
+        }
+    ],
 		  "title": "Some load",
 		  "description": "Taxi fare description",
 		  "riders": [
 		  {
 		  "_id" : "1",
-		  "username" : "test", 
+		  "username" : "test",
 		  "first_name": "John",
 		  "last_name": "Doe",
 		  "email": "driver@drive.com",
 		  "phone" : "381-642-245"
 		  }
 		  ]
-		  
 
-		
-		
+
+
+
 	}
 ]

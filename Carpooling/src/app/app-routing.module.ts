@@ -1,3 +1,4 @@
+import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RideDetailComponent } from './ride-detail/ride-detail.component';
@@ -44,6 +45,12 @@ const routes: Routes = [
         component: UserProfileEditComponent
       }
     ]
+  },
+  {
+
+      path: 'driver',
+      component: RiderProfileComponent
+
   },
 
   {

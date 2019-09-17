@@ -42,10 +42,7 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate([this.router.url + '/edit']);
   }
 
-  /**
-   * Format a phone number string based on a universal format (xxx) xxx-xxxx
-   * @param phoneNumberString the string to format
-   */
+
   formatPhoneNumber(phoneNumberString) {
     const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
