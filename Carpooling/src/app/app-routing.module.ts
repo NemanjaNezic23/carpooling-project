@@ -1,3 +1,4 @@
+import { RiderEditProfileComponent } from './rider-edit-profile/rider-edit-profile.component';
 import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -43,14 +44,31 @@ const routes: Routes = [
       {
         path: 'edit',
         component: UserProfileEditComponent
+      },
+      {
+        path: ':_id',
+        component: UserProfileComponent
       }
     ]
   },
   {
 
       path: 'driver',
-      component: RiderProfileComponent
-
+      children: [
+      {
+      path:'',
+      component: RiderProfileComponent,
+      pathMatch: 'full'
+      },
+      {
+        path: 'edit',
+        component: RiderEditProfileComponent
+      },
+      {
+        path: ':_id',
+        component: RiderProfileComponent
+      }
+    ]
   },
 
   {

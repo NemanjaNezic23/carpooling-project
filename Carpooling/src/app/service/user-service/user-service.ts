@@ -13,7 +13,6 @@ export class UserService {
   role = this.roleSource.asObservable();
   loggedIn = this.loggedSource.asObservable();
   private users: User[] = [];
-  role:Number;
 
   constructor(private router: Router) {
     this.generateUsers();
@@ -36,9 +35,6 @@ export class UserService {
    this.roleSource.next(value);
   }
 
-  public isDriver() {
-    return this.role == 1;
-  }
 
   public getUsers() {
     return this.users;

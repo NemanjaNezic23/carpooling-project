@@ -4,7 +4,7 @@
   <form [formGroup]="userForm">
     <div class="card mb-4">
       <div class="card-body">
-        <h4>Tell us about yourself!</h4>
+        <h4>Edit your peronal information and fares here</h4>
       </div>
     </div>
 
@@ -44,6 +44,20 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-lg btn-outline-primary btn-block" [disabled]="!userForm.valid" (click)="submit()">Submit</button>
+    <div class="card mb-4">
+      <div class="card-header">
+        What is the ammount you charge per call?
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="number" class="form-control form-control-lg" id="fare" formControlName="fare">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-lg btn-outline-primary btn-block" (click)="submit()">Submit</button>
   </form>
 </div>
