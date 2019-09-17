@@ -38,7 +38,6 @@ import { RiderEditProfileComponent } from './rider-edit-profile/rider-edit-profi
     UserProfileEditComponent,
     NewRideComponent,
     RideDetailComponent,
-    RegisterFormComponent,
     RiderProfileComponent,
     RiderEditProfileComponent
   ],
