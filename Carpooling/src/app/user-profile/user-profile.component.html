@@ -1,0 +1,76 @@
+<!--User profile info when they click on profile. User has username, first name, last name, phone, email. -->
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div >
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="text-center">
+
+        <img src='https://i.pravatar.cc/150?img=${user._id}' width="100" height="100">
+        <h1>{{user.username}} {{user.last_name}}</h1>
+
+        <p>{{formatPhoneNumber(user.phone)}}</p>
+        <p><a [href]="'mailto:' + user.email" style="color: white"><button>{{user.email}}</button></a></p>
+        <button class="btn btn-lg btn-primary btn-block" (click)="edit()">Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div *ngIf="money_saved > 0">
+      <div class="row">
+        <div class="col-12">
+          <h1 style="text-align: center">You've saved ${{money_saved}}!</h1>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+      <!--DESKTOP VIEW-->
+      <div class="col-6">
+        <div class="card-deck d-none d-sm-block" >
+          <h1 style="text-align: center">Past Rides</h1>
+            <div *ngFor="let ride of past_rides">
+              <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+            </div>
+        </div>
+      </div>
+      <!--MOBILE VIEW-->
+
+      <div class="card-deck d-block d-sm-none">
+        <div *ngIf="past_rides.length > 0">
+          <h1 style="text-align: left">Past Rides</h1>
+          <div *ngFor="let ride of past_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESKTOP VIEW
+      <div class="col-6">
+        <div class="card-deck d-none d-sm-block" >
+          <h1 style="text-align: center">Upcoming rides</h1>
+          change ride to future ride only
+          <div *ngFor="let ride of future_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
+        </div>
+      </div>
+      MOBILE VIEW
+
+      <div class="card-deck d-block d-sm-none">
+        <div *ngIf="future_rides.length > 0">
+          <h1 style="text-align: left">Upcoming rides</h1>
+          <div *ngFor="let ride of future_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</div>

@@ -17,11 +17,39 @@ export class Ride {
   departureTime: Date;
   arrivalTime: Date;
   departureAddress: String;
-  arrivaAddress: String;
+  arrivalAddress: String;
   departureLocation: Number[];
   arrivalLocation: Number[];
   owner: User;
   title: String;
   description: String;
   riders: User[];
+
+  constructor(id, departingFrom, departingDateTime, arrivingAt, meetingLocation, numberRiders,
+              commentsInput, cost, spots, vehicleType, departureTime, arrivalTime, departureAddress,
+              arrivalAddress, departureLocation, arrivalLocation, owner, title,
+              description,  riders) {
+                      this._id = id;
+                      this.departingFrom = departingFrom;
+                      this.departingDatetime = departingDateTime;
+                      this.arrivingAt = arrivingAt;
+                      this.meetingLocation = meetingLocation;
+                      this.numberRiders = numberRiders;
+                      this.commentsInput = commentsInput;
+                      this.cost = cost;
+                      this.spots = spots;
+                      this.vehicleType = vehicleType;
+                      this.departureTime = departureTime;
+                      this.arrivalTime = arrivalTime;
+                      this.departureAddress = departureAddress;
+                      this.arrivalAddress = arrivalAddress;
+                      this.departureLocation = departureLocation;
+                      this.arrivalLocation = arrivalLocation;
+                      this.owner = owner;
+                      this.title = title;
+                      this.description = description;
+                      this.riders = riders;
+                    }
+
+
 }

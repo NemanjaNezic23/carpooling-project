@@ -1,0 +1,12 @@
+.new-ride-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.padding {
+  padding: 50px;
+}
+
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}

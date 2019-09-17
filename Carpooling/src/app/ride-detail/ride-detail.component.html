@@ -1,0 +1,126 @@
+<!--When user clicks on ride card, the ride detail page will appear, showing more details of the ride like who else is on it-->
+<div  class="container mt-5">
+
+  <!--Desktop View-->
+  <div class="card-deck d-none d-sm-block">
+
+    <!--Top Thing-->
+    <div class="card mt-2 w-50 mx-auto">
+      <div class="card-header nopadding">
+        <div class="row nopadding">
+          <!--<div class="col">-->
+          <div class="box nopadding" style="background-color: #2B7A78">
+            <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departingDatetime |
+              date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departingDatetime |
+              date:'longDate')}}</b></div>
+            <!--</div>-->
+          </div>
+          <div class="col-6" style="padding-top: 15px; padding-left: 20px">
+            <h4>{{ride.departingFrom}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arrivingAt}}</h4>
+            <!--<h4> {{number_of_riders}}</h4>-->
+            <h4>{{ride.departingDatetime | date:'shortTime':'CDT'}} CDT</h4>
+            <h5> # riders: {{ride.riders.length}}/{{ride.numberRiders}} </h5>
+
+          </div>
+          <!--Click to join or leave ride-->
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="card mt-2 w-50 mx-auto">
+      <div class="card-header" >
+        <h5> Comments: {{ride.commentsInput}} </h5>
+      </div>
+    </div>
+
+    <!--Riders-->
+    <div class="card mt-2 w-50 mx-auto" *ngFor="let rider of ride.riders">
+      <div class="card-body">
+      <div class="row">
+          <div class="col-sm-6">
+            <img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?colors=143937&colors=FFF&colors=2B7A78&numcolors=3&size=220&fmt=svg'" width="50%" height="100%">
+          </div>
+          <div class="col-sm-6 align-self-center">
+            <h2>
+              {{rider.first_name}} {{rider.last_name}}
+            </h2>
+            <p>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a [href]="'mailto:' + rider.email">{{rider.email}}</a><br>
+            </p>
+            <p *ngIf="rider.phone">
+              <i class="fa fa-mobile"></i>
+              <a  [href]="'tel:' + rider.phone">{{rider.phone}}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Mobile View-->
+  <div class="card-deck d-block d-sm-none">
+
+    <!--Top Thing-->
+    <div class="card mt-2">
+      <div class="card-header nopadding">
+        <div class="row">
+          <div class="col col-3">
+            <div class="box nopadding" style="background-color: #2B7178">
+              <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departingDatetime |
+                date:'longDate')}}</b></div>
+              <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departingDatetime |
+                date:'longDate')}}</b></div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-8" style="padding-top: 25px; padding-left: 20px">
+            <h4>{{ride.departingFrom}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arrivingAt}}</h4>
+
+            <h4>{{ride.departingDatetime | date:'shortTime':'CDT'}} CDT</h4>
+          </div>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
+        </div>
+      </div>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header" >
+        <h5> Comments: {{ride.commentsInput}} </h5>
+      </div>
+    </div>
+
+    <!--Riders-->
+    <div class="card mt-2" *ngFor="let rider of ride.riders">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-xs-6">
+
+            <img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?colors=143937&colors=FFF&colors=2B7A78&numcolors=3&size=220&fmt=svg'" width="50%" height="100%">
+          </div>
+
+          <div class="col-xs-6 align-self-center" style="padding-left: 10px">
+            <h2>
+              {{rider.first_name}} {{rider.last_name}}
+            </h2>
+            <p>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a [href]="'mailto:' + rider.email">{{rider.email}}</a><br>
+            </p>
+            <p *ngIf="rider.phone">
+              <i class="fa fa-mobile"></i>
+              <a  [href]="'tel:' + rider.phone">{{rider.phone}}</a>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

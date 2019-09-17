@@ -1,3 +1,5 @@
+import { UserService } from './../service/user-service/user-service';
+import { RideService } from './../service/ride-service/ride-service';
 import { LoginDialogComponentComponent } from './../login-dialog-component/login-dialog-component.component';
 
 import { Router } from '@angular/router';
@@ -13,9 +15,9 @@ export class LandingPageComponent implements OnInit {
 
   dialogRef: MatDialogRef<LoginDialogComponentComponent>;
 
-  constructor(private router: Router, public dialog: MatDialog) {
-
-
+  constructor(private router: Router, public dialog: MatDialog,
+    private rideService: RideService,
+    private userService: UserService) {
 
    }
 

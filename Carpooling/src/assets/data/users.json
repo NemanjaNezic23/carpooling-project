@@ -1,0 +1,30 @@
+[
+	{
+			"_id" : "1",
+		  "username" : "driver", 
+		  "first_name": "John",
+		  "last_name": "Doe",
+		  "email": "driver@drive.com",
+		  "phone" : "381-642-245"
+	},
+	{
+		"_id" : "2",
+		  "username" : "student", 
+		  "first_name": "Jane",
+		  "last_name": "Doe",
+		  "email": "jane@drive.com",
+		  "phone" : "381-642-245"
+	},
+	{
+		"_id" : "3",
+		  "username" : "admin", 
+		  "first_name": "Charlie",
+		  "last_name": "Dawn",
+		  "email": "charlie@drive.com",
+		  "phone" : "381-642-245"
+	}
+	
+	
+
+
+]

@@ -1,3 +1,4 @@
+import { RideService } from './../service/ride-service/ride-service';
 import { Ride } from './../model/ride';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,9 +12,10 @@ export class RideListComponent implements OnInit {
   private rides: Ride[];
   private today = new Date();
 
-  constructor() { }
+  constructor(private rideService: RideService) { }
 
   ngOnInit() {
+    this.rides = this.rideService.getRides();
   }
 
 

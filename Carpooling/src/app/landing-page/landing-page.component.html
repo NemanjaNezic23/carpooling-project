@@ -6,11 +6,10 @@
     <!--Original size of the logo: 1583px by 1266px-->
     <img src="assets/img/carpoolll.png" alt="Carpool Logo" width="164" height="274">
     <h1 class="display-3" style="font-family: Helvetica">Carpool</h1>
-    <p class="lead text-center" style="color:#ffffff; font-family: Helvetica">The reign of Google Sheets is over</p>
+    <p class="lead text-center" style="color:#ffffff; font-family: Helvetica">Welcome to Carpooling Service - Your one-stop for cheapest rides!</p>
     <hr class="my-4">
     <p class="lead ">
-      <a class="btn btn-outline-secondary btn-lg" *ngIf ="!(loggedIn | async)" (click)="openLoginForm()"  role="button">Login</a>
-      <a class="btn btn-outline-secondary btn-lg" style="color: white" *ngIf ="(loggedIn | async )" (click)="openRegisterForm()" role="button">GET RIDE!</a>
+      <a class="btn btn-outline-secondary btn-lg" (click)="openLoginForm()"  role="button">Get a Ride!</a>
     </p>
   </div>
 </div>
