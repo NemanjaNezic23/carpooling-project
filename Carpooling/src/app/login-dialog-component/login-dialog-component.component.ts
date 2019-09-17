@@ -28,7 +28,10 @@ export class LoginDialogComponentComponent implements OnInit {
     this.form = new FormGroup({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      email: new FormControl('example@email.com', [Validators.email] )
+      email: new FormControl('', [Validators.email] ),
+      registerUsername: new FormControl('', [Validators.required]),
+      registerPassword: new FormControl('', [Validators.required]),
+      registerEmail: new FormControl('', [Validators.required, Validators.email])
     });
   }
   public onLogin(form) {

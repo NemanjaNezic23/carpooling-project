@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
  @import "~ng-pick-datetime/assets/style/picker.min.css";
 
@@ -37,12 +36,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
  }
 
+ html, body { height: 100%; }
+ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
  *,
  *::before,
  *::after {
    -webkit-box-sizing: border-box;
    box-sizing: border-box;
  }
+
+ tabset{
+  margin: 0;
+  outline: 0;
+  border:none !important;
+  }
 
  html {
    font-family: sans-serif;
@@ -71,6 +78,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
    text-align: left;
    background-color: #FFFFFF;
  }
+
+ .mat-tab-label-active {
+  color: #fff;
+  border: none !important;
+  background-color: #3aafa9 !important;
+}
 
 
  [tabindex="-1"]:focus {

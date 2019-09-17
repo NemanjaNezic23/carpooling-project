@@ -1,26 +1,33 @@
 <form [formGroup]="form" (ngSubmit)="onLogin(form)">
-
-<h2 mat-dialog-title>Welcome to Carpooling Service</h2>
-
+<mat-card class="ui-pull-top">
+<h2 >Welcome to Carpooling Service</h2>
+</mat-card>
 <mat-dialog-content>
+
   <mat-tab-group>
     <mat-tab label="Log in ">
       <div class="formContainer" style="display: flex; flex-direction: column;">
-          <mat-icon >home</mat-icon>
       <mat-form-field appearance="outline">
 
         <mat-label>Username</mat-label>
           <input matInput
-                  placeholder="Username"
+                   required
+                  placeholder="Enter your username"
                  formControlName="username">
       </mat-form-field>
-
+      <div *ngIf="form.get(['username']).invalid && form.get('username').errors['required'] && form.get('username').touched ">
+          <h5 class="alert alert-danger">Username is required!</h5>
+      </div>
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput
+        required
         placeholder="Enter your password"
         formControlName="password">
       </mat-form-field>
+      <div *ngIf="form.get(['password']).invalid && form.get('password').errors['required'] && form.get('password').touched ">
+          <h5 class="alert alert-danger">Password is required!</h5>
+      </div>
     </div>
     </mat-tab>
     <mat-tab label="Register">
@@ -28,32 +35,45 @@
         <mat-form-field appearance="outline">
           <mat-label>Username</mat-label>
             <input matInput
-                    placeholder="Enter your username"
-                   formControlName="username">
+                    required
+                    placeholder="Enter desired username"
+                   formControlName="registerUsername">
         </mat-form-field>
 
+        <div *ngIf="form.get(['registerUsername']).invalid && form.get('registerUsername').errors['required'] && form.get('registerUsername').touched ">
+            <h5 class="alert alert-danger">Username is required!</h5>
+        </div>
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput
-          placeholder="Enter your password"
-          formControlName="password">
+          required
+          placeholder="Enter desired password"
+          formControlName="registerPassword">
         </mat-form-field>
+        <div *ngIf="form.get(['registerPassword']).invalid && form.get('registerPassword').errors['required'] && form.get('registerPassword').touched ">
+            <h5 class="alert alert-danger">Password is required!</h5>
+        </div>
         <mat-form-field appearance="outline">
           <mat-label>E-mail</mat-label>
           <input matInput
+          required
           placeholder="Enter your email"
-          formControlName="password">
+          formControlName="registerEmail">
         </mat-form-field>
+        <div *ngIf="form.get(['registerEmail']).invalid && form.get('registerEmail').errors['required'] && form.get('registerEmail').touched ">
+            <h5 class="alert alert-danger">Email is required!</h5>
+        </div>
       </div>
 
     </mat-tab>
 
   </mat-tab-group>
-
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="closeDialog()">Close</button>
-    <button class="mat-raised-button mat-primary">Save</button>
+    <button class="btn btn-primary ui-fix btn-block">Log in</button>
+    <button class="btn btn-outline-primary btn-block" (click)="closeDialog()">Close</button>
 </mat-dialog-actions>
 </form>
+
+

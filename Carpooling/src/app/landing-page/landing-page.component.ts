@@ -29,6 +29,7 @@ export class LandingPageComponent implements OnInit {
     const dialogRef = new MatDialogConfig();
     dialogRef.disableClose = true;
     dialogRef.autoFocus = true;
+    dialogRef.panelClass = 'ui-panel-overlay';
 
     this.dialog.open(LoginDialogComponentComponent, dialogRef);
   }

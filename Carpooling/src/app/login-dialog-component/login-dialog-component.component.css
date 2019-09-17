@@ -1,0 +1,14 @@
+.ui-pull-top {
+  margin-bottom: 2rem;
+  background-color: #3aafa9;
+  color: #fff;
+}
+
+.ui-fix {
+  background-color: #3aafa9;
+
+}
+
+.ui-fix:hover {
+  color: #fff;
+}
