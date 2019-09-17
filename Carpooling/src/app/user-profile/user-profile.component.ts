@@ -23,7 +23,6 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private userService: UserService, private route: ActivatedRoute,
               private rideService: RideService, private fb: FormBuilder, private router: Router) {
-                this.user = this.userService.getUserProfile('1');
               }
 
   ngOnInit() {
@@ -33,7 +32,7 @@ export class UserProfileComponent implements OnInit {
       let userId = this.user._id;
       console.log('user id => ' + userId);
       this.past_rides = this.rideService.getPastRides(this.user._id);
-      // this.past_rides = this.rideService.getPastRides(this.user._id);
+
   }
 
   /**

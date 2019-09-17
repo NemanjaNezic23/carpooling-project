@@ -22,6 +22,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
 import { NewRideComponent } from './new-ride/new-ride.component';
 import { RideDetailComponent } from './ride-detail/ride-detail.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -47,15 +48,13 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     ReactiveFormsModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDde-BQYkDmbx_gHIvVAjoszg82qH1pt2Y',
-      libraries: ['places']
-    }),
-    AgmDirectionModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     RideService,
-    UserService
+    UserService,
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialogComponentComponent]

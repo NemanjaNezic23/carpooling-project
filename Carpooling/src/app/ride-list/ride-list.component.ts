@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RideListComponent implements OnInit {
 
-  private rides: Ride[];
-  private today = new Date();
+  public rides: Ride[];
+  public today = new Date();
 
   constructor(private rideService: RideService) { }
 

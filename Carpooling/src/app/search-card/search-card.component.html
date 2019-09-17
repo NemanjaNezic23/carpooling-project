@@ -41,22 +41,22 @@
                           Departure Date
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
-                          <input class="form-control" id="search_depart_date" [min]="todayDate - 1" [owlDateTime]="dateDepartSearch" [owlDateTimeTrigger]="dateDepartSearch" formControlName="search_depart_date" placeholder="Date">
-                          <owl-date-time [pickerType]="'calendar'"
-                                         [startAt]="startAt"
-                                         #dateDepartSearch>
-                          </owl-date-time>
+                          <mat-form-field>
+                              <input matInput [matDatepicker]="pickerDepart" formControlName="search_depart_date" class="form-control form-control-lg ml-3" [min]="todayDate -1 ">
+                              <mat-datepicker-toggle matSuffix [for]="pickerDepart"></mat-datepicker-toggle>
+                              <mat-datepicker #pickerDepart></mat-datepicker>
+                            </mat-form-field>
                       </form>
                   </div>
               </div>
               <div>
-                  <button class="btn btn-outline-primary btn-md text-center" (click)="search()">
+                  <button class="btn btn-outline-primary btn-md text-center">
                       Search!
                   </button>
-                  <button class="btn btn-outline-primary btn-md text-center" (click)="clear()">
+                  <button class="btn btn-outline-primary btn-md text-center" >
                       Clear search
                   </button>
-                  <button class="btn btn-outline-primary btn-md text-center" (click)="newRideForm()">
+                  <button class="btn btn-outline-primary btn-md text-center" >
                       Create a new ride?
                   </button>
 
@@ -109,22 +109,24 @@
               Departure Date
             </div>
             <form class="form-inline" [formGroup]="newSearchForm">
-              <input class="form-control" id="search_depart_date1" [min]="todayDate" [owlDateTime]="dateDepartSearch1" [owlDateTimeTrigger]="dateDepartSearch1" formControlName="search_depart_date" placeholder="Date">
-              <owl-date-time [pickerType]="'calendar'"
-                             [startAt]="startAt"
-                             #dateDepartSearch1>
-              </owl-date-time>
+
+                             <mat-form-field>
+                                <input matInput [matDatepicker]="pickerDepartMobile" formControlName="search_depart_date" class="form-control form-control-lg ml-3">
+                                <mat-datepicker-toggle matSuffix [for]="pickerDepartMobile"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerDepartMobile></mat-datepicker>
+                              </mat-form-field>
+
             </form>
           </div>
         </div>
         <div>
-          <button class="btn btn-outline-primary btn-md text-center" (click)="search()">
+          <button class="btn btn-outline-primary btn-md text-center" >
             Search!
           </button>
-          <button class="btn btn-outline-primary btn-md text-center" (click)="clear()">
+          <button class="btn btn-outline-primary btn-md text-center" >
             Clear search
           </button>
-          <button class="btn btn-outline-primary btn-md text-center" (click)="newRideForm()">
+          <button class="btn btn-outline-primary btn-md text-center">
             Create a new ride?
           </button>
         </div>
