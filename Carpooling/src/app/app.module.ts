@@ -21,7 +21,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { NewRideComponent } from './new-ride/new-ride.component';
 import { RideDetailComponent } from './ride-detail/ride-detail.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
 import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 import { RiderEditProfileComponent } from './rider-edit-profile/rider-edit-profile.component';
